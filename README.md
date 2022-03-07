@@ -1,9 +1,10 @@
 # DeepLearning
+
 Materials for my Bayesian Data Analysis course
 
 ## Setting up the python environment
 
-In this course you will be working with python using jupyter notebooks or jupyter lab. So first you have to set up a proper python environment. I strongly encourage you to use some form of a virtual environment. I recommend the Anaconda or its smaller subset miniconda. Personally I recommend using 
+In this course you will be working with python using jupyter notebooks or jupyter lab. So first you have to set up a proper python environment. I strongly encourage you to use some form of a virtual environment. I recommend the [Anaconda](https://docs.anaconda.com/anaconda/install/index.html) or its smaller subset [miniconda](https://docs.conda.io/en/latest/miniconda.html). Personally I recommend using 
 [mambaforge](https://github.com/conda-forge/miniforge#mambaforge). 
 After installing `mambaforge` create a new virtual environment `bda` (or any other name you want):
 
@@ -21,7 +22,10 @@ mamba install  jupyterlab jupytext myst-nb
 mamba install numpy scipy  matplotlib
 ```
 If you didn't install `mamba` then you can subsitute `conda` for `mamba`. I tend to use `mamba` as it is markedly faster then `conda`.  
-
+After installing all required packages you can start `jupyter lab` by running 
+```
+jypyter lab
+```
 
 ## MyST format
 
@@ -29,3 +33,15 @@ The notebooks in the repository are stored in [MyST (Markedly Structured Text Fo
 ```shell
 jupytext --to notebook <md file name>
 ```
+
+## Using python in lab
+
+When using the computers in lab, please log to your linux account and then run
+```
+source /app/Python/3.9.7/VE/defaults/bin/activate
+```
+The you can run 
+```
+jupyter lab
+```
+
