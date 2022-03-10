@@ -1,4 +1,4 @@
-# DeepLearning
+# Bayesian Data Analysis
 
 Materials for my Bayesian Data Analysis course
 
@@ -18,7 +18,7 @@ conda activate bda
 Now you can install required packages (if you are using Anaconda some maybe already installed):
 
 ```
-mamba install  jupyterlab jupytext myst-nb
+mamba install  jupyterlab jupytext myst-nbP
 mamba install numpy scipy  matplotlib
 ```
 If you didn't install `mamba` then you can subsitute `conda` for `mamba`. I tend to use `mamba` as it is markedly faster then `conda`.  
@@ -44,4 +44,32 @@ The you can run
 ```
 jupyter lab
 ```
+
+## Workin with this repository
+
+We will be using git and GitHub in this course. Please start by cloning this repository
+```shell
+git clone https://github.com/pbialas7-Lectures/BayesianDataAanalysis.git
+```
+Then change into just created repository and change the name of the remote
+```shell
+git remote rename origin lecture 
+```
+Teraz będą mogli Państwo uaktualniać swoje repo z mojego pisząc
+```shell
+git pull lecture 
+```
+
+Następnie proszę sobie założyć **prywatne** reposytorium na githubie. Po założeniu go proszę wykonać polecenie
+```shell
+git remote add origin  url_do_tego_repozytorium
+```
+url można uzyskać klikając na przycisk `Code` na głównej stronie. Następnie proszę  wepchnąć do niego pliki z repozytorium używając
+```shell
+git push -u origin main
+```
+Teraz mogą już Państwo wpychać tam swoje zmiany użwając `git push`. 
+
+
+Na koniec proszę dodać mnie jako współpracownika do tego repozytorium (zakładka Settings/Collaborators and teams). Na githubie mam nicka `pbialas7`. 
 
