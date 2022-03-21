@@ -11,6 +11,10 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+import numpy as np
+```
+
 # Rounded data  (from "Bayesian Data Analysis")
 
 +++
@@ -105,5 +109,5 @@ When solving the problem is better to calculate not the posterior probability bu
 
 +++
 
-To calculate mean and variance of $\mu$ and $\sigma^2$ we need marginal distributions. We can approximate them  numerically by symming over one axis of the grid.
+To calculate mean and variance of $\mu$ and $\sigma^2$ we need marginal distributions. We can approximate them  numerically by summing over one axis of the grid.
 Do not forget to exponentiate the log of probability before summing!
