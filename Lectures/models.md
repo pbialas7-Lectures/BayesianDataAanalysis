@@ -12,6 +12,11 @@ kernelspec:
 ---
 
 ```{code-cell} ipython3
+from wand.image import Image as WImage
+from IPython.display import IFrame
+```
+
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: skip
@@ -29,38 +34,46 @@ plt.rcParams["figure.figsize"] = [12,8]
 
 # Bayesian Data Analysis
 
++++
+
+Let's recall the most important formula of BDA:
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 $$P(\theta|y) \propto P(y|\theta) P(\theta)$$
 
-+++ {"slideshow": {"slide_type": "slide"}, "tags": []}
++++
 
-## Nuisance parameters
+The quantity $P(y|\theta)$ on the right side is called the _sampling distribution_ when viewed as the function of $y$. It describes how data $y$ is generated given the (unknown) parameters $\theta$. When viewed as a function of $\theta$ with $y$ fixed it is called the _likelihood_. Please note that likelihood  in general is **not** a probability distribution for parameters $\theta$. 
 
-+++ {"slideshow": {"slide_type": "fragment"}, "tags": []}
++++
 
-$$P(\theta_1,\theta_2|y) \propto P(y|\theta_1,\theta_2) P(\theta_1,\theta_2)$$
+Probability distribution $P(\theta)$ is the _prior_. It represents our knowledge, or lack of it, of parameters $\theta$ before we collected any data. 
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
-$$P(\theta_1|y) = \int\text{d}{\theta_2}P(\theta_1,\theta_2|y) $$
+And finally the quantity on the left is the _posterior_  probability distribution which represents our new knowledge of parameters $\theta$ after having collected data $y$. The formula above is valid only up to a normlizing constant $Z^{-1}$ 
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
-$$P(\theta_1|y) = \int\text{d}\theta_2 P(\theta_1|y,\theta_2)P(\theta_2|y)$$
+$$Z=\int\text{d}\theta P(y|\theta) P(\theta)$$
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Normal model with know variance
+## Normal model with know variance
 
 +++ {"slideshow": {"slide_type": "fragment"}}
 
-$$P(y|\mu,\sigma) =\prod_k \frac{1}{\sqrt{2\pi}\sigma} 
-e^{-\frac{1}{2\sigma^2}\left(y_k-\mu\right)^2}$$
+$$P(\{y_k\}|\mu,\sigma) =\prod_k \frac{1}{\sqrt{2\pi}\sigma} 
+e^{-\displaystyle\frac{1}{2\sigma^2}\left(y_k-\mu\right)^2}$$
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ###  Uninformative (improper) prior
+
++++
+
+$$P(y|\mu,\sigma)=f(y-\mu)$$
 
 +++ {"slideshow": {"slide_type": "fragment"}}
 
@@ -68,7 +81,7 @@ $$P(\mu|y,\sigma)=g(y-\mu,\sigma)$$
 
 +++ {"slideshow": {"slide_type": "fragment"}}
 
-$$g(y-\mu|\sigma)P(\mu) \propto f(y-\mu,\sigma)$$
+$$g(y-\mu,\sigma)P(\mu) \propto f(y-\mu,\sigma)$$
 
 +++ {"slideshow": {"slide_type": "fragment"}}
 
@@ -97,17 +110,37 @@ $$
 
 $$\mu|y,\sigma \sim \operatorname{Norm}\left(\bar y,\frac{\sigma}{\sqrt{n}}\right)$$
 
++++
+
+The above notation means that random variable $\mu$ with fixed $y$ and $\sigma$ is distributed according to normal distribution with mean $\bar\mu$ and variance $\frac{\sigma}{\sqrt{n}}$.
+
++++ {"slideshow": {"slide_type": "slide"}, "tags": []}
+
+## Nuisance parameters
+
++++ {"slideshow": {"slide_type": "fragment"}, "tags": []}
+
+$$P(\theta_1,\theta_2|y) \propto P(y|\theta_1,\theta_2) P(\theta_1,\theta_2)$$
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+$$P(\theta_1|y) = \int\text{d}{\theta_2}P(\theta_1,\theta_2|y) $$
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+$$P(\theta_1|y) = \int\text{d}\theta_2 P(\theta_1|y,\theta_2)P(\theta_2|y)$$
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ### Uknow variance
 
 +++ {"slideshow": {"slide_type": "fragment"}}
 
-$$P(y|\mu,\sigma)=\frac{1}{\sigma}\cdot g\left(\frac{y-\mu}{\sigma}\right)$$
+$$P(y|\mu,\sigma)=\frac{1}{\sigma}\cdot f\left(\frac{y-\mu}{\sigma}\right)$$
 
 +++ {"slideshow": {"slide_type": "fragment"}}
 
-$$P(\mu,\sigma|y) = \frac{y}{\sigma^2} f\left(\frac{y-\mu}{\sigma}\right)$$
+$$P(\mu,\sigma|y) = \frac{y}{\sigma^2} g\left(\frac{y-\mu}{\sigma}\right)$$
 
 +++ {"slideshow": {"slide_type": "fragment"}}
 
@@ -124,7 +157,7 @@ P(\mu,\sigma^2|y) \propto  \sigma^{-n-2}
 e^{\displaystyle -\frac{n}{2\sigma^2}\left(\bar y -\mu\right)^2 -\frac{n}{2\sigma^2}\left(\overline{y^2} -{\bar y }^2\right)}
 $$
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++ {"slideshow": {"slide_type": "fragment"}, "tags": []}
 
 $$
 P(\mu,\sigma^2|y) \propto  (\sigma^2)^{-\frac{n+2}{2}} 
