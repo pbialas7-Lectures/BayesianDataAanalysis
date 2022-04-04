@@ -55,21 +55,28 @@ Then change into just created repository and change the name of the remote
 ```shell
 git remote rename origin lecture 
 ```
-Teraz będą mogli Państwo uaktualniać swoje repo z mojego pisząc
+Now you can update your repo from mine by issuing command 
 ```shell
 git pull lecture 
 ```
+Please not that if you have changed some of the files e.g. some lectures then you  can have merge probems that you will have to resolve. 
 
-Następnie proszę sobie założyć **prywatne** reposytorium na githubie. Po założeniu go proszę wykonać polecenie
+
+Next please create a  **private** repository on [GitHub](https://github.com). Then add this repository as remote to the repo you have just cloned by ruuning
+Po założeniu go proszę wykonać polecenie
 ```shell
 git remote add origin  url_do_tego_repozytorium
 ```
-url można uzyskać klikając na przycisk `Code` na głównej stronie. Następnie proszę  wepchnąć do niego pliki z repozytorium używając
+You can find the url by clicking on the  `Code` button on the main page of the repo on GitHu. Then please push the contect of the local repo using the command
 ```shell
 git push -u origin main
 ```
-Teraz mogą już Państwo wpychać tam swoje zmiany użwając `git push`. 
+Now you can push your changes to repository  using `git push`. 
+
+And finally please add me as a collaborator  (Select tab `Settings` and nex `Collaborators and teams`). My  [GitHub id is `pbialas7`](https://github.com/pbialas7). 
+
+## Jupytext and version control  (**!**)
 
 
-Na koniec proszę dodać mnie jako współpracownika do tego repozytorium (zakładka Settings/Collaborators and teams). Na githubie mam nicka `pbialas7`. 
+
 
