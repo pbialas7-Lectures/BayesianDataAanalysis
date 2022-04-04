@@ -77,6 +77,6 @@ And finally please add me as a collaborator  (Select tab `Settings` and nex `Col
 
 ## Jupytext and version control  (**!**)
 
-
+While the notebook `*.ipynb` files are JSON text files, they are not well suited for version control. That is because each notebook stores additional  information, like e.g. the output of each cell and the number of times each cell was executed. As a consequence,  executing even a single cell changes the notebook without really changing it content and makes it very hard to keep it under version control. That's why it is recomended to use `jupytext` for this purpose. Jupytext automatically keeps the  `*.ipynb` notebook file in sync with another  text file that  does not contain this extra information. You can choose from several formats for this file. I am using the `*.md` files in [Myst Markdown](https://myst-parser.readthedocs.io/en/latest/) format. To use `jupytext` you have of course to install it (see above). After that please download the `jupytext.toml` file from my repository (you have it already if you have cloned my repository). Please download also the `.gitignore` file which will prevent the `*.ipynb` files to be recognised by `git`. Then  keep under version control **only** the `*.md` files. Do not add the `*.ipynb` files to your repo.  
 
 
