@@ -31,7 +31,7 @@ $$\mu\propto 1\qquad \sigma^2\propto \frac{1}{\sigma^2}$$
 
 +++
 
-Give the posterior distribution for $(\mu, \sigma^2)$ obtained by pretending that the observations are exact unrounded measurements.
+Give the posterior distribution for $(\mu, \sigma^2)$ obtained by pretending that the observations are exact unrounded measurements. Make contour plot and calculate the MAP estimate for $(\mu,\sigma^2)$. Calculate and plot the marginal disribution for $\mu$. 
 
 +++
 
@@ -39,7 +39,7 @@ Give the posterior distribution for $(\mu, \sigma^2)$ obtained by pretending tha
 
 +++
 
-Give the correct posterior distribution for $(\mu, \sigma^2)$ treating the measurements as rounded.
+Give the correct posterior distribution for $(\mu, \sigma^2)$ treating the measurements as rounded. Make contour plot and calculate the MAP estimate for $(\mu,\sigma^2)$. Calculate and plot the marginal disribution for $\mu$. 
 
 +++
 
@@ -47,7 +47,7 @@ Give the correct posterior distribution for $(\mu, \sigma^2)$ treating the measu
 
 +++
 
-How do the incorrect and correct posterior distributions differ? Compare means, variances, and contour plots.
+How do the incorrect and correct posterior distributions differ? Compare means and variances of $\mu$ and $\sigma^2$.
 
 +++
 
@@ -80,6 +80,7 @@ grid = make_grid(quad, xs,ys)
 
 ```{code-cell} ipython3
 import matplotlib.pyplot as plt
+plt.rcParams["figure.figsize"] = [8,6]
 ```
 
 ```{code-cell} ipython3
